@@ -1,0 +1,20 @@
+server:
+  port: '8081'
+
+spring:
+  application.name: text-processing-service
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+      simple:
+        prefetch: 4
+        retry:
+          enabled: true
+          initial-interval: 10s
+          max-interval: 30s
+          multiplier: 2
+          max-attempts: 3
